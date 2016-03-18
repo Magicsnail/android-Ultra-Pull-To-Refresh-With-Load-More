@@ -1,16 +1,16 @@
-# Modification
+# Ultra Pull To Refresh with Load More
 
-I had made a modification of the Ultra-Pull-to-Refresh library and let it support load-more function. It supports every view as like as pull-to-refresh. All the logic is simulated to the pull-to-refresh and the configurations(resistance, duration etc.) are shared for both load-more and pull-to-refresh. Currently, only the `Home page（PtrDemoHomeFragment）` and `AutoRefresh（WithGridView）` page in demo are modified to demonstrate how to use load-more. But the mechanism should be the same as pull-to-refresh. 
+This is a modification of the *Ultra-Pull-to-Refresh* library which supports load-more for any view.
 
-If your want to this fork, please download this project and import to your IDE manually. The gradle and maven below is not supported by this fort yet.
+[Ultra Pull to Refresh](https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh) is a replacement for the deprecated pull to refresh solution. It can contain any view you want. It's easy to use and more powerful than SwipeRefreshLayout. It's well designed, you can customize the UI effect you want as easy as adding a headview to ListView.
 
-PS: All the API are not modified. If you have used the origin Ultra-Pull-To-Refresh library, there will be no need to change your code if you move to this fork.
+Support `API LEVEL >= 8`, all snapshots are taken from Genymotion, 2.3.7.
 
-Thank you for `Huqiu Liao`, who created such a great library. His code was so scalable and made my modification easier. 
+# Load more
 
-This fork is just developed and there would be bugs. Please feel free to report me if you found some bugs.
+This is a modification of the *Ultra-Pull-to-Refresh* library which supports load-more for any view. It supports every view as like as pull-to-refresh. All the logic is similar to the pull-to-refresh and the configurations(resistance, duration etc.) are shared for both load-more and pull-to-refresh. All the APIs for the origin branch are not modified. If you have used the origin Ultra-Pull-To-Refresh library, **there will be no need to change your code if you move to this branch**.
 
-Github: https://github.com/captainbupt
+Currently, only the `Home page（PtrDemoHomeFragment）` and `AutoRefresh（WithGridView）` page in demo are modified to demonstrate how to use load-more. 
 
 # New functions and classes
 
@@ -19,6 +19,31 @@ Github: https://github.com/captainbupt
 - `PtrDefaultHandler2`: Implemented a default `checkCanDoLoadMore()` logic. The same mechanism as `PtrDefaultHandler`.
 - `PtrClassicDefaultFooter`: Serve as a default footer which is the reverse of the default header.
 - `setMode(Mode)`: The mode is a new feature of this library. By using `setMode`, you can enable or disable either header or footer. The argument is an enum, you should it like `setMode(Mode.BOTH)`.
+
+## Usage
+
+- in gradle:
+```
+    compile 'in.srain.cube:ptr-load-more:1.0'
+```
+
+- in maven：
+```
+
+<dependency>
+	<groupId>in.srain.cube</groupId>
+	<artifactId>ptr-load-more</artifactId>
+	<version>1.0</version>
+	<type>pom</type>
+</dependency>
+```
+
+## Contacts
+
+- Github: https://github.com/captainbupt
+- Email: weizhou.captain.he@gmail.com
+
+If there is any suggestions or problems, please feel no hesitated to open an issue. I will keep responsing.
 
 ---
 
@@ -29,13 +54,7 @@ Github: https://github.com/captainbupt
 
 # Ultra Pull To Refresh
 
-It's a replacement for the deprecated pull to refresh solution. It can contain any view you want.
 
-It's easy to use and more powerful than SwipeRefreshLayout.
-
-It's well designed, you can customize the UI effect you want as easy as adding a headview to ListView.
-
-Support `API LEVEL >= 8`, all snapshots are taken from Genymotion, 2.3.7.
 
 [Download APK](https://raw.githubusercontent.com/liaohuqiu/android-Ultra-Pull-To-Refresh/master/ptr-demo.apk)
 

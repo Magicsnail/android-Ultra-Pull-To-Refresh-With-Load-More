@@ -1,20 +1,18 @@
-# 修改
+# Ultra Pull to Refresh with Load More
 
-本分支对原有的Ultra Pull To Refresh进行了修改，使得其支持了上拉加载更多。和下拉刷新一样，上拉加载同样支持所有view。全部的逻辑都是仿造原有的下拉刷新而来，并且配置信息（阻抗，持续时间等）为两者共享。目前，实例项目demo中只有`主页面`和`自动刷新`页面演示了如何使用上拉加载更多，不过原理上与下拉刷新一致，应该比较好理解。
+本分支对原有的Ultra Pull To Refresh进行了修改，使得其支持了上拉加载更多。
 
-如果想要使用本分支，请直接下载源码并导入IDE中。底部的gradle和maven目前并不支持。
+[Ultra Pull to Refresh](https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh)是现在已经停止维护的下拉刷新项目的替代方案。继承于ViewGroup可以包含任何View。功能比SwipeRefreshLayout强大。使用起来非常简单。良好的设计，如果你想定制自己的UI样式，非常简单，就像给ListView加一个Header View那么简单。
 
-注：本分支没有修改任何原有API。如果你之前已经在使用Ultra Pull To Refresh，那么你可以无缝的转换到本分支上来。
+支持 `API LEVEL >= 8`。
 
-感谢`廖祜秋`开源了这个非常棒的下拉刷新库。他所写的代码可拓展性极高，使得我的修改工作也轻松不少。
+## 加载更多
 
-本分支刚刚开发完成，可能会存在bug。如果有问题，欢迎指出！
+本分支对原有的Ultra Pull To Refresh进行了修改，使得其支持了上拉加载更多。和下拉刷新一样，上拉加载同样支持所有view。全部的逻辑都是仿造原有的下拉刷新而来，并且配置信息（阻抗，持续时间等）为两者共享。另外，本分支没有修改任何原有API。如果你之前已经在使用Ultra Pull To Refresh，那么你可以无缝的转换到本分支上来。
 
-Github: https://github.com/captainbupt
+实例项目demo中只有`主页面`和`自动刷新`页面演示了如何使用上拉加载更多。
 
-博客: http://blog.csdn.net/hwz2311245
-
-# 添加的方法和类
+## 添加的方法和类
 
 - `setFooterView`：对应于`setHeaderView()`。在set完footer后，你需要调用 `addPtrUIHandler()`，这和设置header的机制是一样的。
 - `PtrHandler2`：原有`PtrHandler`类的一个补充。当需要使用上拉加载更多的时候，你应该调用`setPtrHandler(new PtrHandler2())`，而不是`setPtrHandler(new PtrHandler())`。
@@ -22,21 +20,35 @@ Github: https://github.com/captainbupt
 - `PtrClassicDefaultFooter`：默认的footer，将默认header反转了过来。
 - `setMode(Mode)`: Mode是本分支的一个新特性。通过调用`setMode`, 你可以任意的开启/关闭header或者footer。参数类型是一个枚举变量，可以通过以下方式调用：`setMode(Mode.BOTH)`.
 
+## 引用方法
+
+- 在gradle中:
+```
+    compile 'in.srain.cube:ptr-load-more:1.0'
+```
+
+- 在maven中：
+```
+
+<dependency>
+	<groupId>in.srain.cube</groupId>
+	<artifactId>ptr-load-more</artifactId>
+	<version>1.0</version>
+	<type>pom</type>
+</dependency>
+```
+
+## 联系方式
+
+- Github: https://github.com/captainbupt
+- 博客: http://blog.csdn.net/hwz2311245
+- 邮箱: 285173036@qq.com
+
+有任何意见和问题，欢迎在issues中提出，一定尽快回复。
+
 ---
 
-# Ultra Pull To Refresh
-
-这是现在已经停止维护的下拉刷新项目的替代方案。继承于ViewGroup可以包含任何View。功能比SwipeRefreshLayout强大。
-
-使用起来非常简单。良好的设计，如果你想定制自己的UI样式，非常简单，就像给ListView加一个Header View那么简单。
-
-支持 `API LEVEL >= 8`。
-
-[APK下载](https://raw.githubusercontent.com/liaohuqiu/android-Ultra-Pull-To-Refresh/master/ptr-demo.apk)
-
-#### 使用eclipse的同学请注意, Intellij IDEA / Android Studio 请忽略
-
-**demo可以直接在eclipse中运行, 编译demo项目的同学看这里:  http://www.liaohuqiu.net/cn/posts/compile-ultra-ptr-in-eclipse/**
+# 以下是原项目的说明
 
 * 先上两张StoreHouse风格的截图! 感谢 [CBStoreHouseRefreshControl](https://github.com/coolbeet/CBStoreHouseRefreshControl).
     <div class='row'>
