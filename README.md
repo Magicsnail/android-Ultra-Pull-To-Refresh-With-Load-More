@@ -1,3 +1,5 @@
+#### [中文版文档](https://github.com/captainbupt/android-Ultra-Pull-To-Refresh-With-Load-More/blob/master/README-cn.md)
+
 # Ultra Pull To Refresh with Load More
 
 This is a modification of the *Ultra-Pull-to-Refresh* library which supports load-more for any view.
@@ -49,8 +51,6 @@ If there is any suggestions or problems, please feel no hesitated to open an iss
 
 [![Build Status](https://travis-ci.org/liaohuqiu/android-Ultra-Pull-To-Refresh.svg?branch=master)](https://travis-ci.org/liaohuqiu/android-Ultra-Pull-To-Refresh)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Ultra%20Pull%20To%20Refresh-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/1180)
-
-#### [中文版文档](https://github.com/captainbupt/android-Ultra-Pull-To-Refresh-With-Load-More/blob/master/README-cn.md)
 
 # Ultra Pull To Refresh
 
