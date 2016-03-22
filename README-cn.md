@@ -24,7 +24,7 @@
 
 - 在gradle中:
 ```
-    compile 'in.srain.cube:ptr-load-more:1.0'
+    compile 'in.srain.cube:ptr-load-more:1.0.2’
 ```
 
 - 在maven中：
@@ -33,7 +33,7 @@
 <dependency>
 	<groupId>in.srain.cube</groupId>
 	<artifactId>ptr-load-more</artifactId>
-	<version>1.0</version>
+	<version>1.0.2</version>
 	<type>pom</type>
 </dependency>
 ```
