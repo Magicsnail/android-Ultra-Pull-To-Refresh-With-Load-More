@@ -88,6 +88,8 @@ public class WithGridView extends TitleBaseFragment {
         mPtrFrame.setDurationToCloseHeader(1000);
         // default is false
         mPtrFrame.setPullToRefresh(false);
+        mPtrFrame.setForceBackWhenComplete(true);
+
         // default is true
         mPtrFrame.setKeepHeaderWhenRefresh(true);
         mPtrFrame.postDelayed(new Runnable() {
@@ -97,6 +99,7 @@ public class WithGridView extends TitleBaseFragment {
             }
         }, 100);
         // updateData();
+
         setupViews(mPtrFrame);
         return contentView;
     }

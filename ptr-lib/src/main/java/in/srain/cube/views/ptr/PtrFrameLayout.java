@@ -50,6 +50,7 @@ public class PtrFrameLayout extends ViewGroup {
     private int mDurationToCloseHeader = 1000;
     private boolean mKeepHeaderWhenRefresh = true;
     private boolean mPullToRefresh = false;
+    private boolean mForceBackWhenComplete = false;
     private View mHeaderView;
     private View mFooterView;
     private PtrUIHandlerHolder mPtrUIHandlerHolder = PtrUIHandlerHolder.create();
@@ -417,7 +418,15 @@ public class PtrFrameLayout extends ViewGroup {
                 mHasSendCancelEvent = false;
                 mPtrIndicator.onPressDown(e.getX(), e.getY());
 
-                mScrollChecker.abortIfWorking();
+                if(!mForceBackWhenComplete){
+                    mScrollChecker.abortIfWorking();
+                }else{
+                    // when footer is showing and status is completed, do not abort scroller.
+                    boolean isFooter = !mPtrIndicator.isHeader() && mPtrIndicator.hasLeftStartPosition(); // if the footer is showing
+                    if(!isFooter || mStatus != PTR_STATUS_COMPLETE){
+                        mScrollChecker.abortIfWorking();
+                    }
+                }
 
                 mPreventForHorizontal = false;
                 // The cancel event will be sent once the position is moved.
@@ -486,10 +495,14 @@ public class PtrFrameLayout extends ViewGroup {
                 }
 
                 // if footer is showing, then no need to move header
-                // When status is completing, that is, the footer is hiding, disable pull up
-                if (canMoveDown && mStatus != PTR_STATUS_COMPLETE) {
-                    moveFooterPos(offsetY);
-                    return true;
+                if (canMoveDown) {
+                    // When status is completed, disable pull up
+                    if(mForceBackWhenComplete && mStatus == PTR_STATUS_COMPLETE){
+                        return dispatchTouchEventSupper(e);
+                    }else {
+                        moveFooterPos(offsetY);
+                        return true;
+                    }
                 }
         }
         return dispatchTouchEventSupper(e);
@@ -660,9 +673,15 @@ public class PtrFrameLayout extends ViewGroup {
 
     /**
      * Scroll back to to if is not under touch
+     * When forceback is true and footer is completed, scroll back either
      */
     private void tryScrollBackToTop() {
         if (!mPtrIndicator.isUnderTouch() && mPtrIndicator.hasLeftStartPosition()) {
+            mScrollChecker.tryToScrollTo(PtrIndicator.POS_START, mDurationToCloseHeader);
+            return;
+        }
+
+        if(mForceBackWhenComplete && !mPtrIndicator.isHeader() && mStatus == PTR_STATUS_COMPLETE){
             mScrollChecker.tryToScrollTo(PtrIndicator.POS_START, mDurationToCloseHeader);
         }
     }
@@ -1061,6 +1080,15 @@ public class PtrFrameLayout extends ViewGroup {
 
     public void setKeepHeaderWhenRefresh(boolean keepOrNot) {
         mKeepHeaderWhenRefresh = keepOrNot;
+    }
+
+    @SuppressWarnings({"unused"})
+    public boolean isForceBackWhenComplete() {
+        return mForceBackWhenComplete;
+    }
+
+    public void setForceBackWhenComplete(boolean mForceBackWhenComplete) {
+        this.mForceBackWhenComplete = mForceBackWhenComplete;
     }
 
     public boolean isPullToRefresh() {
