@@ -30,8 +30,8 @@ public class PtrDemoApplication extends Application {
             CLog.setLogLevel(CLog.LEVEL_VERBOSE);
         }
 
-        CubeDebug.DEBUG_IMAGE = true;
-        PtrFrameLayout.DEBUG = true;
+        CubeDebug.DEBUG_IMAGE = false;
+        PtrFrameLayout.DEBUG = false;
         //PtrFrameLayout.DEBUG = false;
 
         ImageLoaderFactory.setDefaultImageReSizer(DemoDuiTangImageReSizer.getInstance());

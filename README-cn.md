@@ -1,16 +1,26 @@
 # Ultra Pull to Refresh with Load More
 
-本分支对原有的Ultra Pull To Refresh进行了修改，使得其支持了上拉加载更多。
+本分支对原有的*Ultra Pull To Refresh*进行了修改，使得其支持了上拉加载更多。
 
-[Ultra Pull to Refresh](https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh)是现在已经停止维护的下拉刷新项目的替代方案。继承于ViewGroup可以包含任何View。功能比SwipeRefreshLayout强大。使用起来非常简单。良好的设计，如果你想定制自己的UI样式，非常简单，就像给ListView加一个Header View那么简单。
+# 1.0.3更新
 
-支持 `API LEVEL >= 8`。
+为了添加更多功能，我将头部和脚部的一些属性给分开了，例如`resistance`和`durationToClose`。同时，为了避免在变量名称上造成误解，一些原有的变量名也作出了修改。
+
+- 在旧版本中，`ptr_duration_to_close`是指回到**刷新状态**的事件。另外，`ptr_duration_to_close_header`代表回到**开始状态（不可见）**的事件。这两个属性有点类似，因此可能造成误解，特别是在添加了footer之后。所以，**在新版本中，`ptr_duration_to_close`被删除，而使用`ptr_duration_to_back_refresh`作为替代**。同时，也加入了`ptr_duration_to_back_header`和`ptr_duration_to_back_footer`来区分头部和脚部。
+- 新版本中，添加`ptr_duration_to_close_either`代表回到**开始状态（不可见）**的事件。
+- 针对`ptr_resistance`，也分别添加`ptr_resistance_header`和`ptr_resistance_footer`。
+
+可以查看`FooterFeatures`来查看新添加的方法。如果你有任何意见，欢迎反馈。
 
 ## 加载更多
 
-本分支对原有的Ultra Pull To Refresh进行了修改，使得其支持了上拉加载更多。和下拉刷新一样，上拉加载同样支持所有view。全部的逻辑都是仿造原有的下拉刷新而来，并且配置信息（阻抗，持续时间等）为两者共享。另外，本分支没有修改任何原有API。如果你之前已经在使用Ultra Pull To Refresh，那么你可以无缝的转换到本分支上来。
+[Ultra Pull to Refresh](https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh)是现在已经停止维护的下拉刷新项目的替代方案。继承于ViewGroup可以包含任何View。功能比SwipeRefreshLayout强大。使用起来非常简单。良好的设计，如果你想定制自己的UI样式，非常简单，就像给ListView加一个Header View那么简单。
+
+和下拉刷新一样，上拉加载同样支持所有view。全部的逻辑都是仿造原有的下拉刷新而来，并且配置信息（阻抗，持续时间等）为两者共享。另外，本分支没有修改任何原有API。如果你之前已经在使用Ultra Pull To Refresh，那么你可以无缝的转换到本分支上来。
 
 实例项目demo中只有`主页面`和`自动刷新`页面演示了如何使用上拉加载更多。
+
+支持 `API LEVEL >= 8`。
 
 ## 添加的方法和类
 

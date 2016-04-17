@@ -9,12 +9,12 @@ public interface PtrHandler2 extends PtrHandler{
      *
      * {@link PtrDefaultHandler#checkContentCanBePulledDown}
      */
-    boolean checkCanDoLoadMore(final PtrFrameLayout frame, final View content, final View footer);
+    abstract boolean checkCanDoLoadMore(final PtrFrameLayout frame, final View content, final View footer);
 
     /**
      * When load more begin
      *
      * @param frame
      */
-    void onLoadMoreBegin(final PtrFrameLayout frame);
+    public abstract void onLoadMoreBegin(final PtrFrameLayout frame);
 }

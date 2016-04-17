@@ -82,13 +82,11 @@ public class WithGridView extends TitleBaseFragment {
 
         });
         // the following are default settings
-        mPtrFrame.setResistance(1.7f);
+        mPtrFrame.setResistance(1.7f); // you can also set foot and header separately
         mPtrFrame.setRatioOfHeaderHeightToRefresh(1.2f);
-        mPtrFrame.setDurationToClose(200);
-        mPtrFrame.setDurationToCloseHeader(1000);
+        mPtrFrame.setDurationToClose(1000);  // you can also set foot and header separately
         // default is false
         mPtrFrame.setPullToRefresh(false);
-        mPtrFrame.setForceBackWhenComplete(true);
 
         // default is true
         mPtrFrame.setKeepHeaderWhenRefresh(true);
@@ -121,7 +119,7 @@ public class WithGridView extends TitleBaseFragment {
                         mPtrFrame.refreshComplete();
                         mAdapter.notifyDataSetChanged();
                     }
-                }, 0);
+                }, 1000);
             }
         });
     }

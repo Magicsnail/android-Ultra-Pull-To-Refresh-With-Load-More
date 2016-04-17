@@ -2,6 +2,8 @@ package in.srain.cube.views.ptr;
 
 import android.view.View;
 
+import in.srain.cube.views.ptr.indicator.PtrIndicator;
+
 public interface PtrHandler {
 
     /**
@@ -9,12 +11,12 @@ public interface PtrHandler {
      *
      * {@link in.srain.cube.views.ptr.PtrDefaultHandler#checkContentCanBePulledDown}
      */
-    boolean checkCanDoRefresh(final PtrFrameLayout frame, final View content, final View header);
+    abstract boolean checkCanDoRefresh(final PtrFrameLayout frame, final View content, final View header);
 
     /**
      * When refresh begin
      *
      * @param frame
      */
-    void onRefreshBegin(final PtrFrameLayout frame);
+    public abstract void onRefreshBegin(final PtrFrameLayout frame);
 }

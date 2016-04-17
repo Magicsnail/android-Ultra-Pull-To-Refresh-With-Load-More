@@ -9,12 +9,19 @@
 
         <!-- the resistance when you are moving the frame -->
         <attr name="ptr_resistance" format="float"/>
+        <attr name="ptr_resistance_header" format="float"/>
+        <attr name="ptr_resistance_footer" format="float"/>
 
         <!-- the ration of the height of the header to trigger refresh -->
         <attr name="ptr_ratio_of_header_height_to_refresh" format="float"/>
 
-        <attr name="ptr_duration_to_close" format="integer"/>
+        <attr name="ptr_duration_to_back_refresh" format="integer"/>
+        <attr name="ptr_duration_to_back_header" format="integer"/>
+        <attr name="ptr_duration_to_back_footer" format="integer"/>
+
+        <attr name="ptr_duration_to_close_either" format="integer"/>
         <attr name="ptr_duration_to_close_header" format="integer"/>
+        <attr name="ptr_duration_to_close_footer" format="integer"/>
 
         <!-- pull to refresh, otherwise release to refresh, default is release to refresh -->
         <attr name="ptr_pull_to_fresh" format="boolean"/>
