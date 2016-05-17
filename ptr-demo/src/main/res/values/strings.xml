@@ -5,6 +5,7 @@
     <string name="ptr_demo_block_for_home">Ultra Pull to Refresh</string>
 
     <string name="ptr_demo_block_grid_view">Contains A GridView With Footer</string>
+    <string name="ptr_demo_block_grid_view_in_frame_layout">A GridView reside in FrameLayout</string>
     <string name="ptr_demo_block_grid_view_footer">Footer hide immediately</string>
     <string name="ptr_demo_block_list_view">Contains A ListView</string>
     <string name="ptr_demo_block_web_view">Contains A WebView</string>
