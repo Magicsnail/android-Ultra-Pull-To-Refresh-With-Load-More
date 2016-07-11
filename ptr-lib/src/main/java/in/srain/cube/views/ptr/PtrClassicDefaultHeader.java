@@ -99,7 +99,7 @@ public class PtrClassicDefaultHeader extends FrameLayout implements PtrUIHandler
      * @param object
      */
     public void setLastUpdateTimeRelateObject(Object object) {
-        setLastUpdateTimeKey(object.getClass().getName());
+        setLastUpdateTimeKey(object.getClass().getName() + "header");
     }
 
     protected void buildAnimation() {
@@ -162,8 +162,10 @@ public class PtrClassicDefaultHeader extends FrameLayout implements PtrUIHandler
     }
 
     @Override
-    public void onUIRefreshComplete(PtrFrameLayout frame) {
-
+    public void onUIRefreshComplete(PtrFrameLayout frame, boolean isHeader) {
+        if(!isHeader){
+            return;
+        }
         hideRotateView();
         mProgressBar.setVisibility(INVISIBLE);
 

@@ -873,7 +873,7 @@ public class PtrFrameLayout extends ViewGroup {
             if (DEBUG) {
                 PtrCLog.i(LOG_TAG, "PtrUIHandler: onUIRefreshComplete");
             }
-            mPtrUIHandlerHolder.onUIRefreshComplete(this);
+            mPtrUIHandlerHolder.onUIRefreshComplete(this, mPtrIndicator.isHeader());
         }
         mPtrIndicator.onUIRefreshComplete();
         tryScrollBackToTopAfterComplete();

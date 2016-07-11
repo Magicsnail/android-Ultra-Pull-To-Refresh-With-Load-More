@@ -80,6 +80,15 @@ public class WithGridView extends TitleBaseFragment {
                 updateData();
             }
 
+            @Override
+            public boolean checkCanDoLoadMore(PtrFrameLayout frame, View content, View footer) {
+                return super.checkCanDoLoadMore(frame, gridListView, footer);
+            }
+
+            @Override
+            public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
+                return super.checkCanDoRefresh(frame, gridListView, header);
+            }
         });
         // the following are default settings
         mPtrFrame.setResistance(1.7f); // you can also set foot and header separately

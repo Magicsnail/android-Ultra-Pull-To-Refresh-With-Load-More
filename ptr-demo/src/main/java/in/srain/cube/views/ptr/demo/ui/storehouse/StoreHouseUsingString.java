@@ -70,7 +70,7 @@ public class StoreHouseUsingString extends TitleBaseFragment {
             }
 
             @Override
-            public void onUIRefreshComplete(PtrFrameLayout frame) {
+            public void onUIRefreshComplete(PtrFrameLayout frame, boolean isHeader) {
 
             }
 

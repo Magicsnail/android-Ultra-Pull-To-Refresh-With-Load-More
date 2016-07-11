@@ -81,7 +81,7 @@ public class RentalsSunHeaderView extends View implements PtrUIHandler {
     }
 
     @Override
-    public void onUIRefreshComplete(PtrFrameLayout frame) {
+    public void onUIRefreshComplete(PtrFrameLayout frame, boolean isHeader) {
         float percent = mPtrTensionIndicator.getOverDragPercent();
         mDrawable.stop();
         mDrawable.offsetTopAndBottom(mPtrTensionIndicator.getCurrentPosY());
