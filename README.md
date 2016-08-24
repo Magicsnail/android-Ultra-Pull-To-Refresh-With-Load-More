@@ -36,7 +36,7 @@ Support `API LEVEL >= 8`, all snapshots are taken from Genymotion, 2.3.7.
 
 - in gradle:
 ```
-    compile 'in.srain.cube:ptr-load-more:1.0.4’
+    compile 'in.srain.cube:ptr-load-more:1.0.5’
 ```
 
 - in maven：
@@ -45,7 +45,7 @@ Support `API LEVEL >= 8`, all snapshots are taken from Genymotion, 2.3.7.
 <dependency>
 	<groupId>in.srain.cube</groupId>
 	<artifactId>ptr-load-more</artifactId>
-	<version>1.0.4</version>
+	<version>1.0.5</version>
 	<type>pom</type>
 </dependency>
 ```
