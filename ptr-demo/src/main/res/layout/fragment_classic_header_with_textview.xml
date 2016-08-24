@@ -8,7 +8,7 @@
         android:id="@+id/fragment_rotate_header_with_text_view_frame"
         xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="#fff"
         cube_ptr:ptr_duration_to_close_either="1000"
         cube_ptr:ptr_keep_header_when_refresh="true"
@@ -19,7 +19,7 @@
         <TextView
             android:id="@+id/fragment_rotate_header_with_text_view_content"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="@dimen/cube_mints_content_view_padding"
             android:clickable="true"
             android:background="@drawable/text_view_bg"

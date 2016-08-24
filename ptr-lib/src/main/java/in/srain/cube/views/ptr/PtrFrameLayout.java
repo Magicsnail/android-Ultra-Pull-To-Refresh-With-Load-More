@@ -287,7 +287,7 @@ public class PtrFrameLayout extends ViewGroup {
 
         if (DEBUG && DEBUG_LAYOUT) {
             PtrCLog.d(LOG_TAG, "onMeasure frame: width: %s, height: %s, padding: %s %s %s %s",
-                    getMeasuredHeight(), getMeasuredWidth(),
+                    getMeasuredWidth(), getMeasuredHeight(),
                     getPaddingLeft(), getPaddingRight(), getPaddingTop(), getPaddingBottom());
 
         }
@@ -308,13 +308,17 @@ public class PtrFrameLayout extends ViewGroup {
 
         if (mContent != null) {
             measureContentView(mContent, widthMeasureSpec, heightMeasureSpec);
+            ViewGroup.MarginLayoutParams lp = (MarginLayoutParams) mContent.getLayoutParams();
             if (DEBUG && DEBUG_LAYOUT) {
-                ViewGroup.MarginLayoutParams lp = (MarginLayoutParams) mContent.getLayoutParams();
                 PtrCLog.d(LOG_TAG, "onMeasure content, width: %s, height: %s, margin: %s %s %s %s",
                         getMeasuredWidth(), getMeasuredHeight(),
                         lp.leftMargin, lp.topMargin, lp.rightMargin, lp.bottomMargin);
                 PtrCLog.d(LOG_TAG, "onMeasure, currentPos: %s, lastPos: %s, top: %s",
                         mPtrIndicator.getCurrentPosY(), mPtrIndicator.getLastPosY(), mContent.getTop());
+            }
+            // if the layout's height is wrap_content, set the layout' height to be the same with the content's height
+            if (getLayoutParams().height == LayoutParams.WRAP_CONTENT) {
+                super.setMeasuredDimension(getMeasuredWidth(), mContent.getMeasuredHeight() + lp.topMargin + lp.bottomMargin);
             }
         }
     }
@@ -1000,7 +1004,6 @@ public class PtrFrameLayout extends ViewGroup {
     }
 
 
-
     public void setPtrHandler(PtrHandler ptrHandler) {
         mPtrHandler = ptrHandler;
     }
@@ -1056,7 +1059,6 @@ public class PtrFrameLayout extends ViewGroup {
     public float getDurationToClose() {
         return mDurationToCloseHeader;
     }
-
 
 
     /**
