@@ -1188,8 +1188,8 @@ public class PtrFrameLayout extends ViewGroup {
     }
 
     public void setFooterView(View footer) {
-        if (mFooterView != null && footer != null && mHeaderView != footer) {
-            removeView(mHeaderView);
+        if (mFooterView != null && footer != null && mFooterView != footer) {
+            removeView(mFooterView);
         }
         ViewGroup.LayoutParams lp = footer.getLayoutParams();
         if (lp == null) {
