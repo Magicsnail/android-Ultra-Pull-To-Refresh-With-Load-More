@@ -3,7 +3,11 @@ package in.srain.cube.views.ptr;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.view.*;
+import android.view.Gravity;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewConfiguration;
+import android.view.ViewGroup;
 import android.widget.Scroller;
 import android.widget.TextView;
 
@@ -1366,4 +1370,11 @@ public class PtrFrameLayout extends ViewGroup {
             }
         }
     }
+
+    public void trySetHeaderSize(int newPx) {
+        if (!mPtrIndicator.isUnderTouch() && mStatus == PTR_STATUS_COMPLETE && newPx < mPtrIndicator.getCurrentPosY()) {
+            mScrollChecker.tryToScrollTo(newPx, 100);
+        }
+    }
+
 }
